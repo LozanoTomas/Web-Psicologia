@@ -1,4 +1,6 @@
 import './style.css'
+import heroInicioImage from './assets/hero-inicio.png'
+import fotoSobreMi from './assets/foto-sobre-mi.jpg'
 
 document.documentElement.classList.add('js')
 
@@ -14,7 +16,7 @@ const professional = {
 }
 
 document.querySelector('#app').innerHTML = `
-  <header class="site-header" id="inicio">
+  <header class="site-header">
     <a class="brand" href="#inicio" aria-label="Ir al inicio">
       <span class="brand__name">${professional.name}</span>
       <span class="brand__role">${professional.credential}</span>
@@ -30,9 +32,9 @@ document.querySelector('#app').innerHTML = `
     <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
       <a href="#bienvenida">Bienvenida</a>
-      <a href="#espacio">Servicios</a>
+      <a href="#espacio">Modalidad</a>
       <a href="#sobre-mi">Sobre mí</a>
-      <a href="#equipo">Equipo</a>
+      <a href="#blog">Blog</a>
       <a href="#contacto">Contacto</a>
       <a class="button button--small" href="${professional.whatsappUrl}" target="_blank" rel="noopener">
         Solicitar consulta
@@ -41,10 +43,10 @@ document.querySelector('#app').innerHTML = `
   </header>
 
   <main>
-    <section class="hero-section reveal" aria-labelledby="hero-title">
+    <section class="hero-section reveal" id="inicio" aria-labelledby="hero-title">
       <div class="hero-section__content">
-        <div class="hero-mark" aria-hidden="true">
-          <span></span>
+        <div class="hero-mark hero-mark--image" aria-hidden="true">
+          <img src="${heroInicioImage}" alt="" />
         </div>
         <h1 id="hero-title">No todo mal estar necesita ser eliminado. Algunos requieren ser leídos.</h1>
         <p class="hero-section__kicker">Psicoterapia de orientación psicoanalítica</p>
@@ -86,7 +88,7 @@ document.querySelector('#app').innerHTML = `
 
     <section class="section workspace-section reveal" id="espacio" aria-labelledby="workspace-title">
       <div class="section-heading section-heading--center">
-        <p class="eyebrow">Servicios</p>
+        <p class="eyebrow">Modalidad</p>
         <h2 id="workspace-title">Formas de acompañamiento</h2>
         <p>
           La consulta puede abrirse por distintos motivos. En cada caso, el recorrido se orienta desde una
@@ -150,43 +152,46 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="meet-card__media">
           <div class="decorative-dot" aria-hidden="true"></div>
-          <div class="editorial-image editorial-image--portrait" aria-label="Espacio reservado para foto profesional">
-            <span>Foto profesional</span>
+          <div class="editorial-image editorial-image--portrait editorial-image--photo">
+            <img src="${fotoSobreMi}" alt="Retrato profesional de ${professional.name}" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section team-section reveal" id="equipo" aria-labelledby="team-title">
+    <section class="section blog-section reveal" id="blog" aria-labelledby="blog-title">
       <div class="section-heading section-heading--center">
-        <p class="eyebrow">Equipo</p>
-        <h2 id="team-title">Red profesional y espacios asociados</h2>
+        <p class="eyebrow">Blog</p>
+        <h2 id="blog-title">Lecturas y notas clínicas</h2>
         <p>
-          Una sección preparada para presentar colaboradores, supervisiones o espacios institucionales vinculados.
+          Un espacio reservado para publicar textos breves, preguntas frecuentes ampliadas o recursos sobre procesos terapéuticos.
         </p>
       </div>
 
-      <div class="team-grid">
-        <article class="team-member reveal">
-          <div class="team-photo" aria-label="Foto de profesional asociada">
-            <span>Asociada</span>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <div class="blog-card__image" aria-label="Imagen editorial para artículo">
+            <span>Artículo</span>
           </div>
-          <h3>Nombre editable</h3>
-          <p>Psicología clínica</p>
+          <p class="blog-card__meta">Lectura editable</p>
+          <h3>Ansiedad y tiempos subjetivos</h3>
+          <p>Una nota futura para pensar el malestar sin reducirlo a una urgencia por eliminar.</p>
         </article>
-        <article class="team-member reveal">
-          <div class="team-photo" aria-label="Foto de profesional asociada">
-            <span>Asociada</span>
+        <article class="blog-card reveal">
+          <div class="blog-card__image" aria-label="Imagen editorial para artículo">
+            <span>Artículo</span>
           </div>
-          <h3>Nombre editable</h3>
-          <p>Supervisión</p>
+          <p class="blog-card__meta">Lectura editable</p>
+          <h3>El inicio de una consulta</h3>
+          <p>Un espacio para explicar cómo se orienta una primera entrevista y qué puede esperarse.</p>
         </article>
-        <article class="team-member reveal">
-          <div class="team-photo" aria-label="Foto de profesional asociada">
-            <span>Espacio</span>
+        <article class="blog-card reveal">
+          <div class="blog-card__image" aria-label="Imagen editorial para artículo">
+            <span>Artículo</span>
           </div>
-          <h3>Espacio editable</h3>
-          <p>Trabajo interdisciplinario</p>
+          <p class="blog-card__meta">Lectura editable</p>
+          <h3>Vínculos, duelos y preguntas</h3>
+          <p>Un futuro artículo sobre motivos frecuentes de consulta y recorridos posibles.</p>
         </article>
       </div>
     </section>
@@ -265,9 +270,9 @@ document.querySelector('#app').innerHTML = `
     <nav aria-label="Navegación secundaria">
       <a href="#inicio">Inicio</a>
       <a href="#bienvenida">Bienvenida</a>
-      <a href="#espacio">Servicios</a>
+      <a href="#espacio">Modalidad</a>
       <a href="#sobre-mi">Sobre mí</a>
-      <a href="#equipo">Equipo</a>
+      <a href="#blog">Blog</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <p>La información de este sitio no reemplaza una consulta profesional.</p>
