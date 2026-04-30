@@ -1,9 +1,11 @@
 import './style.css'
 
+document.documentElement.classList.add('js')
+
 const professional = {
   // EDITAR: reemplazar estos datos antes de publicar la versión final.
-  name: 'Nombre Profesional',
-  credential: 'Psicóloga',
+  name: 'Agustina de la Cereza',
+  credential: 'Psicóloga-Psicoanalista',
   license: 'Matrícula editable',
   email: 'EMAIL_EDITABLE@ejemplo.com',
   location: 'Argentina',
@@ -27,8 +29,10 @@ document.querySelector('#app').innerHTML = `
 
     <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
+      <a href="#bienvenida">Bienvenida</a>
+      <a href="#espacio">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
-      <a href="#espacio">Espacio de trabajo</a>
+      <a href="#equipo">Equipo</a>
       <a href="#contacto">Contacto</a>
       <a class="button button--small" href="${professional.whatsappUrl}" target="_blank" rel="noopener">
         Solicitar consulta
@@ -37,10 +41,13 @@ document.querySelector('#app').innerHTML = `
   </header>
 
   <main>
-    <section class="hero-section section" aria-labelledby="hero-title">
+    <section class="hero-section reveal" aria-labelledby="hero-title">
       <div class="hero-section__content">
-        <p class="eyebrow">Psicoterapia de orientación psicoanalítica</p>
-        <h1 id="hero-title">Psicóloga en Argentina | Atención psicológica online y presencial</h1>
+        <div class="hero-mark" aria-hidden="true">
+          <span></span>
+        </div>
+        <h1 id="hero-title">No todo mal estar necesita ser eliminado. Algunos requieren ser leídos.</h1>
+        <p class="hero-section__kicker">Psicoterapia de orientación psicoanalítica</p>
         <p class="hero-section__lead">
           Un espacio de escucha clínica para acompañar procesos personales, dificultades emocionales
           y momentos de angustia, con ética profesional, confidencialidad y una mirada singular.
@@ -49,82 +56,63 @@ document.querySelector('#app').innerHTML = `
           <a class="button" href="${professional.whatsappUrl}" target="_blank" rel="noopener">
             Escribir por WhatsApp
           </a>
-          <a class="button button--secondary" href="#sobre-mi">
+          <a class="button button--secondary" href="#bienvenida">
             Conocer el espacio
           </a>
         </div>
       </div>
+    </section>
 
-      <div class="hero-card" aria-label="Resumen del espacio terapéutico">
-        <div class="hero-card__mark" aria-hidden="true"></div>
-        <p>Atención psicológica para adolescentes y adultos.</p>
-        <dl>
-          <div>
-            <dt>Modalidad</dt>
-            <dd>Online y presencial</dd>
-          </div>
-          <div>
-            <dt>Ubicación</dt>
-            <dd>${professional.location}</dd>
-          </div>
-          <div>
-            <dt>Primera entrevista</dt>
-            <dd>A coordinar por WhatsApp</dd>
-          </div>
-        </dl>
+    <section class="section welcome-section reveal" id="bienvenida" aria-labelledby="welcome-title">
+      <div class="floating-card welcome-card">
+        <div class="editorial-image editorial-image--landscape" aria-label="Espacio reservado para imagen editorial">
+          <span>Imagen editorial</span>
+        </div>
+        <div class="content-stack">
+          <p class="eyebrow">Bienvenida</p>
+          <h2 id="welcome-title">Un espacio para escuchar lo que insiste</h2>
+          <p>
+            La terapia ofrece un tiempo distinto: un lugar para poner en palabras aquello que aparece como
+            malestar, pregunta o repetición, sin apuro por responder de inmediato.
+          </p>
+          <p>
+            Cada proceso se construye de manera singular, cuidando la confidencialidad, el encuadre clínico
+            y los tiempos subjetivos de quien consulta.
+          </p>
+          <a class="text-link" href="#sobre-mi">Conocer más</a>
+        </div>
       </div>
     </section>
 
-    <section class="section split-section" id="sobre-mi" aria-labelledby="about-title">
-      <div>
-        <p class="eyebrow">Sobre mí</p>
-        <h2 id="about-title">Acompañamiento profesional desde una escucha clínica y cercana</h2>
-      </div>
-      <div class="content-stack">
+    <section class="section workspace-section reveal" id="espacio" aria-labelledby="workspace-title">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">Servicios</p>
+        <h2 id="workspace-title">Formas de acompañamiento</h2>
         <p>
-          Soy ${professional.name}, ${professional.credential.toLowerCase()} con formación clínica y orientación
-          psicoanalítica. Mi trabajo parte de una escucha respetuosa, atenta a la historia y al momento
-          particular de cada persona.
-        </p>
-        <p>
-          Este sitio deja textos editables para sumar formación, experiencia, espacios de trabajo y datos
-          institucionales reales. La idea es comunicar con claridad, sin tecnicismos innecesarios y sin
-          prometer resultados garantizados.
-        </p>
-        <ul class="check-list">
-          <li>Psicoterapia individual para procesos personales.</li>
-          <li>Atención psicológica online y presencial.</li>
-          <li>Marco profesional, confidencial y ético.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section workspace-section" id="espacio" aria-labelledby="workspace-title">
-      <div class="section-heading">
-        <p class="eyebrow">Espacio de trabajo</p>
-        <h2 id="workspace-title">Un espacio terapéutico para poner en palabras lo que te atraviesa</h2>
-        <p>
-          La consulta puede abrirse por distintos motivos. En cada caso, el recorrido se construye de forma
-          singular, cuidando los tiempos, la privacidad y la complejidad de cada experiencia.
+          La consulta puede abrirse por distintos motivos. En cada caso, el recorrido se orienta desde una
+          escucha clínica, respetuosa y situada.
         </p>
       </div>
 
       <div class="service-grid">
-        <article class="service-card">
+        <article class="service-card reveal">
+          <span class="service-icon service-icon--screen" aria-hidden="true"></span>
           <h3>Atención online</h3>
           <p>
             Terapia online para quienes buscan sostener un proceso de psicoterapia desde un espacio privado,
             accesible y acordado previamente.
           </p>
         </article>
-        <article class="service-card">
+        <article class="service-card reveal">
+          <span class="service-icon service-icon--room" aria-hidden="true"></span>
           <h3>Atención presencial</h3>
           <p>
             Encuentros presenciales en ubicación general editable, con horarios coordinados para cada primera
             entrevista.
           </p>
         </article>
-        <article class="service-card">
+        <article class="service-card reveal">
+          <span class="service-icon service-icon--dialog" aria-hidden="true"></span>
           <h3>Primera entrevista</h3>
           <p>
             Un primer encuentro permite conversar sobre el motivo de consulta, orientar el encuadre y definir
@@ -132,22 +120,78 @@ document.querySelector('#app').innerHTML = `
           </p>
         </article>
       </div>
+    </section>
 
-      <div class="reasons" aria-labelledby="reasons-title">
-        <h3 id="reasons-title">Motivos frecuentes de consulta</h3>
-        <ul>
-          <li>Ansiedad</li>
-          <li>Angustia</li>
-          <li>Vínculos</li>
-          <li>Duelos</li>
-          <li>Crisis vitales</li>
-          <li>Dificultades emocionales</li>
-          <li>Procesos personales</li>
-        </ul>
+    <section class="quote-section reveal" aria-labelledby="quote-title">
+      <div class="quote-section__inner">
+        <span aria-hidden="true">“</span>
+        <h2 id="quote-title">La escucha clínica abre un tiempo para alojar aquello que no siempre encuentra lugar en la vida cotidiana.</h2>
       </div>
     </section>
 
-    <section class="section faq-section" id="preguntas-frecuentes" aria-labelledby="faq-title">
+    <section class="section meet-section reveal" id="sobre-mi" aria-labelledby="about-title">
+      <div class="floating-card meet-card">
+        <div class="content-stack">
+          <p class="eyebrow">Sobre mí</p>
+          <h2 id="about-title">Una práctica orientada por la singularidad de cada consulta</h2>
+          <p>
+            Soy ${professional.name}, ${professional.credential.toLowerCase()} con formación clínica y orientación
+            psicoanalítica. Mi trabajo parte de una escucha respetuosa, atenta a la historia y al momento
+            particular de cada persona.
+          </p>
+          <p>
+            Este sitio deja textos editables para sumar formación, experiencia, espacios de trabajo y datos
+            institucionales reales. La idea es comunicar con claridad, sin tecnicismos innecesarios y sin
+            prometer resultados garantizados.
+          </p>
+          <a class="button button--secondary" href="${professional.whatsappUrl}" target="_blank" rel="noopener">
+            Solicitar entrevista
+          </a>
+        </div>
+        <div class="meet-card__media">
+          <div class="decorative-dot" aria-hidden="true"></div>
+          <div class="editorial-image editorial-image--portrait" aria-label="Espacio reservado para foto profesional">
+            <span>Foto profesional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section team-section reveal" id="equipo" aria-labelledby="team-title">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">Equipo</p>
+        <h2 id="team-title">Red profesional y espacios asociados</h2>
+        <p>
+          Una sección preparada para presentar colaboradores, supervisiones o espacios institucionales vinculados.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-member reveal">
+          <div class="team-photo" aria-label="Foto de profesional asociada">
+            <span>Asociada</span>
+          </div>
+          <h3>Nombre editable</h3>
+          <p>Psicología clínica</p>
+        </article>
+        <article class="team-member reveal">
+          <div class="team-photo" aria-label="Foto de profesional asociada">
+            <span>Asociada</span>
+          </div>
+          <h3>Nombre editable</h3>
+          <p>Supervisión</p>
+        </article>
+        <article class="team-member reveal">
+          <div class="team-photo" aria-label="Foto de profesional asociada">
+            <span>Espacio</span>
+          </div>
+          <h3>Espacio editable</h3>
+          <p>Trabajo interdisciplinario</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq-section reveal" id="preguntas-frecuentes" aria-labelledby="faq-title">
       <div class="section-heading section-heading--compact">
         <p class="eyebrow">Preguntas frecuentes</p>
         <h2 id="faq-title">Dudas habituales antes de iniciar terapia</h2>
@@ -192,7 +236,7 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
-    <section class="section contact-section" id="contacto" aria-labelledby="contact-title">
+    <section class="section contact-section reveal" id="contacto" aria-labelledby="contact-title">
       <div>
         <p class="eyebrow">Contacto</p>
         <h2 id="contact-title">Coordinar primera entrevista</h2>
@@ -220,8 +264,10 @@ document.querySelector('#app').innerHTML = `
     </div>
     <nav aria-label="Navegación secundaria">
       <a href="#inicio">Inicio</a>
+      <a href="#bienvenida">Bienvenida</a>
+      <a href="#espacio">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
-      <a href="#espacio">Espacio de trabajo</a>
+      <a href="#equipo">Equipo</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <p>La información de este sitio no reemplaza una consulta profesional.</p>
@@ -234,6 +280,7 @@ document.querySelector('#app').innerHTML = `
 
 const navToggle = document.querySelector('.nav-toggle')
 const siteNav = document.querySelector('.site-nav')
+const revealElements = document.querySelectorAll('.reveal')
 
 navToggle.addEventListener('click', () => {
   const isExpanded = navToggle.getAttribute('aria-expanded') === 'true'
@@ -247,3 +294,24 @@ siteNav.querySelectorAll('a').forEach((link) => {
     siteNav.classList.remove('is-open')
   })
 })
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      })
+    },
+    {
+      threshold: 0.14,
+      rootMargin: '0px 0px -8% 0px',
+    },
+  )
+
+  revealElements.forEach((element) => revealObserver.observe(element))
+} else {
+  revealElements.forEach((element) => element.classList.add('is-visible'))
+}
